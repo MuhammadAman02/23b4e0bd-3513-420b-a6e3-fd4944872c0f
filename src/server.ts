@@ -1,22 +1,19 @@
-import { buildApp } from './app';
+import app from './app';
 import { env } from './config/env';
 
-async function start() {
-  const app = buildApp();
-
+const start = async () => {
   try {
-    await app.listen({ 
-      port: env.PORT, 
-      host: '0.0.0.0' 
+    await app.listen({
+      port: env.PORT,
+      host: '0.0.0.0',
     });
     
-    console.log(`🚀 Server running on http://localhost:${env.PORT}`);
-    console.log(`📋 Health check: http://localhost:${env.PORT}/api/health`);
-    console.log(`🧪 Test endpoint: http://localhost:${env.PORT}/api/test`);
+    console.log(`Server running on http://localhost:${env.PORT}`);
+    console.log(`Health check available at http://localhost:${env.PORT}/api/health`);
   } catch (err) {
-    console.error('Error starting server:', err);
+    app.log.error(err);
     process.exit(1);
   }
-}
+};
 
 start();
