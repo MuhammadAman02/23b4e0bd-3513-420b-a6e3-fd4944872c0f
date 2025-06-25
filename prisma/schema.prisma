@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,9 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Example model for future use
+// Example User model - you can modify or remove this
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
+  password  String
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
