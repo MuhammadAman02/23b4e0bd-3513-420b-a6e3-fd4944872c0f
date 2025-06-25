@@ -6,5 +6,5 @@ dotenv.config();
 export const env = envsafe({
   NODE_ENV: str({ default: 'development' }),
   PORT: port({ default: 3000 }),
-  DATABASE_URL: str({ default: 'postgresql://user:password@localhost:5432/testdb' }),
+  DATABASE_URL: str({ default: 'postgresql://user:password@localhost:5432/mydb' }),
 });
